@@ -137,10 +137,8 @@ void TIM2_IRQHandler(void) //执行按键扫描功能，可以识别长按，双击，单击
         for(int i = 0; i < NUM_KEYS; i++)
         {
 			
-             int curr_state = Key_Pressed(i); // 读取当前按键状态
-			
-			
-            switch(keystatebuffer[i].key_state)
+			int curr_state = Key_Pressed(i); // 读取当前按键状态
+			switch(keystatebuffer[i].key_state)
             {
                 case KEY_IDLE:
                     if(curr_state == PRESSED) // 检测到按下

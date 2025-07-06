@@ -25,17 +25,7 @@
 uint8_t OLED_GRAM[OLED_PAGE][OLED_COLUMN]; // 定义一个 8x128 的二维数组作为显存缓冲区
 
 
-// TIM3 中断服务函数
-void TIM3_IRQHandler(void)
-{
-    // 检查是否是更新中断 (计数器溢出)
-    if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET)
-    {
-   
-//		OLED_ShowFrame();
-        TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
-    }
-}
+
 
 
 /*引脚初始化*/

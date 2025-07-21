@@ -78,7 +78,7 @@ int main (void)
 		OLED_NewFrame();
 		IWDG_Feed(); //喂狗
 		AD_GetValue(); //获取AD模数转化后得到的数值
-		BAT=(float)AD_Value[Bat_Value]/4095*3.3*3; //遥控器电池电量
+		BAT=(float)AD_Value[Bat_Value]/4095*3.3*5.7; //遥控器电池电量
 		ADC1_Value_average(); //获取平均后的值
 		
 		Load_Data_to_Tx_Buffer();
@@ -90,10 +90,10 @@ int main (void)
 		
 //		OLED_PrintASCIIString(0,0,bat_value_str_buffer,&afont24x12,OLED_COLOR_NORMAL);
 //		OLED_NewFrame();
-//		OLED_PrintASCIINum(0,32,(uint16_t)tx_buffer[11]<<8|((uint16_t)tx_buffer[10]),4,&afont16x8,OLED_COLOR_NORMAL);
-//		OLED_PrintASCIINum(40,32,(uint16_t)tx_buffer[13]<<8|((uint16_t)tx_buffer[12]),4,&afont16x8,OLED_COLOR_NORMAL);
-//		OLED_PrintASCIINum(0,48,(uint16_t)tx_buffer[15]<<8|((uint16_t)tx_buffer[14]),4,&afont16x8,OLED_COLOR_NORMAL);
-//		OLED_PrintASCIINum(40,48,(uint16_t)tx_buffer[17]<<8|((uint16_t)tx_buffer[16]),4,&afont16x8,OLED_COLOR_NORMAL);
+//		OLED_PrintASCIINum(0,32,(uint16_t)tx_buffer[3]<<8|((uint16_t)tx_buffer[2]),4,&afont16x8,OLED_COLOR_NORMAL);
+//		OLED_PrintASCIINum(40,32,(uint16_t)tx_buffer[5]<<8|((uint16_t)tx_buffer[4]),4,&afont16x8,OLED_COLOR_NORMAL);
+//		OLED_PrintASCIINum(0,48,(uint16_t)tx_buffer[7]<<8|((uint16_t)tx_buffer[6]),4,&afont16x8,OLED_COLOR_NORMAL);
+//		OLED_PrintASCIINum(40,48,(uint16_t)tx_buffer[9]<<8|((uint16_t)tx_buffer[8]),4,&afont16x8,OLED_COLOR_NORMAL);
 //		if(tx_done==1)
 //		OLED_PrintASCIIString(0,0,"tx achive!",&afont16x8,OLED_COLOR_NORMAL);
 //		else if(tx_done==2)

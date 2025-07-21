@@ -285,10 +285,10 @@ void Load_Data_to_Tx_Buffer(void)
 	tx_buffer[3]=AD_Value[Rocker_Right_X]>>8; 	//Rocker_Right_X_High_Half
 	tx_buffer[4]=AD_Value[Rocker_Right_Y]&0xFF; //Rocker_Right_Y_Low_Half
 	tx_buffer[5]=AD_Value[Rocker_Right_Y]>>8; 	//Rocker_Right_Y_High_Half
-	tx_buffer[6]=AD_Value[Rocker_Left_X]&0xFF; //Rocker_Left_X_Low_Half
-	tx_buffer[7]=AD_Value[Rocker_Left_X]>>8; 	//Rocker_Left_X_High_Half
-	tx_buffer[8]=AD_Value[Rocker_Left_Y]&0xFF; //Rocker_Left_Y_Low_Half
-	tx_buffer[9]=AD_Value[Rocker_Left_Y]>>8; 	//Rocker_Left_Y_High_Half
+	tx_buffer[6]=AD_Value[Rocker_Left_Y]&0xFF; //Rocker_Left_X_Low_Half
+	tx_buffer[7]=AD_Value[Rocker_Left_Y]>>8; 	//Rocker_Left_X_High_Half
+	tx_buffer[8]=AD_Value[Rocker_Left_X]&0xFF; //Rocker_Left_Y_Low_Half
+	tx_buffer[9]=AD_Value[Rocker_Left_X]>>8; 	//Rocker_Left_Y_High_Half
 	tx_buffer[10]=(uint8_t)angle;
 //	tx_buffer[18]=Rocker_Right_SW_Read();
 //	tx_buffer[19]=Rocker_Left_SW_Read();

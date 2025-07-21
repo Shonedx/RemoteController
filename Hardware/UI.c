@@ -235,15 +235,15 @@ void jump_pre_func(void){
 	OLED_PrintASCIINum(80,24+16,angle,4,&afont12x6,OLED_COLOR_NORMAL);
 	OLED_PrintASCIIString(0,36+16,"jump_state:",&afont12x6,OLED_COLOR_NORMAL);
 	OLED_PrintASCIINum(80,36+16,jump_state,4,&afont12x6,OLED_COLOR_NORMAL);
-	if(keystatebuffer[Keys_SW_shang].event_handle==Event_SingleClick) //上键
+	if(keystatebuffer[Keys_SW_UP].event_handle==Event_SingleClick) //上键 Keys_SW_UP是遥控器左边的
 	{
 		angle=constrain(++angle,0,30);
-		keystatebuffer[Keys_SW_shang].event_handle=Event_None;
+		keystatebuffer[Keys_SW_UP].event_handle=Event_None;
 	}
-	else if(keystatebuffer[Keys_SW_xia].event_handle==Event_SingleClick) //下键
+	else if(keystatebuffer[Keys_SW_DOWN].event_handle==Event_SingleClick) //下键
 	{
 		angle=constrain(--angle,0,30);
-		keystatebuffer[Keys_SW_xia].event_handle=Event_None;
+		keystatebuffer[Keys_SW_DOWN].event_handle=Event_None;
 	}
 };
 //跳跃执行
@@ -260,15 +260,15 @@ void jump_ctrl_func(void)
 //高度控制函数
 void height_func(void){
 	ctrl_state=CS_HEIGHT;
-	if(keystatebuffer[Keys_SW_shang].event_handle==Event_SingleClick) //上键
+	if(keystatebuffer[Keys_SW_UP].event_handle==Event_SingleClick) //上键
 	{
 		height=constrain(++height,CrouchHeight,HigherHeight);
-		keystatebuffer[Keys_SW_shang].event_handle=Event_None;
+		keystatebuffer[Keys_SW_UP].event_handle=Event_None;
 	}
-	else if(keystatebuffer[Keys_SW_xia].event_handle==Event_SingleClick) //下键
+	else if(keystatebuffer[Keys_SW_DOWN].event_handle==Event_SingleClick) //下键
 	{
 		height=constrain(--height,CrouchHeight,HigherHeight);
-		keystatebuffer[Keys_SW_xia].event_handle=Event_None;
+		keystatebuffer[Keys_SW_DOWN].event_handle=Event_None;
 	}
 	OLED_PrintASCIINum(110,40,height,2,&afont12x6,OLED_COLOR_NORMAL);
 };
@@ -313,25 +313,25 @@ SUB_ACT_ITEM_t jumpCtrlcmdItems=
 //菜单主控制函数
 void menu_ctrl(void)
 {
-	if(keystatebuffer[Keys_SW_UP].event_handle==Event_SingleClick) //上键
+	if(keystatebuffer[Keys_SW_shang].event_handle==Event_SingleClick) //上键
 	{
 		menu_functions.switchMenu[0]();
-		keystatebuffer[Keys_SW_UP].event_handle=Event_None;
+		keystatebuffer[Keys_SW_shang].event_handle=Event_None;
 	}
-	if(keystatebuffer[Keys_SW_DOWN].event_handle==Event_SingleClick) //下键
+	if(keystatebuffer[Keys_SW_xia].event_handle==Event_SingleClick) //下键
 	{
 		menu_functions.switchMenu[1]();
-		keystatebuffer[Keys_SW_DOWN].event_handle=Event_None;
+		keystatebuffer[Keys_SW_xia].event_handle=Event_None;
 	}
-	if(keystatebuffer[Keys_KEY_1].event_handle==Event_SingleClick) //Enter键
+	if(keystatebuffer[Keys_WKUP].event_handle==Event_SingleClick) //Enter键
 	{
 		menu_functions.enterMenu();
-		keystatebuffer[Keys_KEY_1].event_handle=Event_None;
+		keystatebuffer[Keys_WKUP].event_handle=Event_None;
 	}
-	if(keystatebuffer[Keys_WKUP].event_handle==Event_SingleClick) //Back键
+	if(keystatebuffer[Keys_KEY_1].event_handle==Event_SingleClick) //Back键
 	{
 		menu_functions.backMenu();
-		keystatebuffer[Keys_WKUP].event_handle=Event_None;
+		keystatebuffer[Keys_KEY_1].event_handle=Event_None;
 	}
 	menu_functions.drawMenu();
 	if(curren_func!=NULL)

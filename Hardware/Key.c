@@ -29,7 +29,7 @@ void Key_Init(void) //按键初始化函数
 	//按键：WKUP--PA0
 	GPIO_Initstructure.GPIO_Pin = WKUP;
 	GPIO_Initstructure.GPIO_Speed = GPIO_Speed_10MHz;
-	GPIO_Initstructure.GPIO_Mode = GPIO_Mode_IPD; // 下拉输入
+	GPIO_Initstructure.GPIO_Mode = GPIO_Mode_IPU; // 上拉输入
 	GPIO_Init(GPIOA,&GPIO_Initstructure);
 
 	GPIO_Initstructure.GPIO_Pin =   SW_shang | SW_xia | SW_zuo;
@@ -54,7 +54,7 @@ int Key_Pressed(int key) //按键按下返回0
 	switch(key)
 	{
 		case Keys_WKUP:
-			output=!GPIO_ReadInputDataBit(GPIOA,WKUP);
+			output=GPIO_ReadInputDataBit(GPIOA,WKUP);
 			break;
 		case Keys_KEY_1:
 			output=GPIO_ReadInputDataBit(GPIOC,KEY_1);
